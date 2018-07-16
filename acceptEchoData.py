@@ -25,15 +25,14 @@ echoForm = cgi.FieldStorage()
 userName = decrypt(echoForm.getvalue('userName'))
 currentLevel = int(decrypt(echoForm.getvalue('currentLevel')))
 trackCount = int(decrypt(echoForm.getvalue('trackCount')))
-echo = (echoForm.getvalue('echo')) #decrypt
 echoLocation = decrypt(echoForm.getvalue('echoLocation'))
 postEchoAction = decrypt(echoForm.getvalue('postEchoAction'))
 correctAction = decrypt(echoForm.getvalue('correctAction'))
 dateTimeStamp = decrypt(echoForm.getvalue('dateTimeStamp'))
 
-cursor.execute('''INSERT INTO EchoData(userName, currentLevel, trackCount, echo,
+cursor.execute('''INSERT INTO EchoData(userName, currentLevel, trackCount,
 echoLocation, postEchoAction, correctAction, dateTimeStamp)
-VALUES(?,?,?,?,?,?,?,?)''', (userName, currentLevel, trackCount, echo,
+VALUES(?,?,?,?,?,?,?)''', (userName, currentLevel, trackCount,
   echoLocation, postEchoAction, correctAction, dateTimeStamp))
 
 db.commit() #changes are committed to database
