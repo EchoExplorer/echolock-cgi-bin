@@ -28,20 +28,17 @@ trackCount = int(decrypt(levelForm.getvalue('trackCount')))
 crashCount = int(decrypt(levelForm.getvalue('crashCount')))
 stepCount = int(decrypt(levelForm.getvalue('stepCount')))
 timeElapsed = float(decrypt(levelForm.getvalue('timeElapsed')))
-totalEchoes = int(decrypt(levelForm.getvalue('totalEchoes')))
 startTime = decrypt(levelForm.getvalue('startTime'))
 endTime = decrypt(levelForm.getvalue('endTime'))
-exitAttempts = decrypt(levelForm.getvalue('exitAttempts'))
 asciiLevelRep = (levelForm.getvalue('asciiLevelRep')) #decrypt
 levelRecord = levelForm.getvalue('levelRecord')
 
-
 cursor.execute('''INSERT INTO LevelData(userName, currentLevel, trackCount,
-  crashCount, stepCount, timeElapsed, totalEchoes, startTime, endTime, exitAttempts, asciiLevelRep,
+  crashCount, stepCount, timeElapsed, startTime, endTime, asciiLevelRep,
   levelRecord, dateTimeStamp)
-VALUES(?,?,?,?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)''', (userName,
-currentLevel, trackCount, crashCount, stepCount, timeElapsed, crashCount, startTime,
-endTime, exitAttempts, asciiLevelRep, levelRecord))
+VALUES(?,?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)''', (userName,
+currentLevel, trackCount, crashCount, stepCount, timeElapsed, startTime,
+endTime, asciiLevelRep, levelRecord))
 
 db.commit() #changes are committed to database
 db.close()
