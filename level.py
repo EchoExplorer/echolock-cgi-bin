@@ -44,3 +44,10 @@ startTime, endTime, exitAttempts, asciiLevelRep, levelRecord))
 
 db.commit() #changes are committed to database
 db.close()
+
+print "Content-type:text/json\r\n\r\n"
+print "{",
+keys = levelForm.keys()
+for key in keys:
+    print key, ":\"", levelForm[key].value, "\"", ",",
+print "}"

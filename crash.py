@@ -36,3 +36,10 @@ VALUES(?,?,?,?,?,?)''', (userName, currentLevel, trackCount,
 
 db.commit() #changes are committed to database
 db.close()
+
+print "Content-type:text/json\r\n\r\n"
+print "{",
+keys = crashForm.keys()
+for key in keys:
+    print key, ":\"", crashForm[key].value, "\"", ",",
+print "}"

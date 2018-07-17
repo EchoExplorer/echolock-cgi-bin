@@ -31,3 +31,10 @@ VALUES(?,?,?)''', (userName, consentID, dateTimeStamp))
 
 db.commit() #changes are committed to database
 db.close()
+
+print "Content-type:text/json\r\n\r\n"
+print "{",
+keys = consentForm.keys()
+for key in keys:
+    print key, ":\"", consentForm[key].value, "\"", ",",
+print "}"

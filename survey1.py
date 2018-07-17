@@ -31,3 +31,10 @@ VALUES(?,?,?)''', (userName, surveyID, dateTimeStamp))
 
 db.commit() #changes are committed to database
 db.close()
+
+print "Content-type:text/json\r\n\r\n"
+print "{",
+keys = surveyForm.keys()
+for key in keys:
+    print key, ":\"", surveyForm[key].value, "\"", ",",
+print "}"
