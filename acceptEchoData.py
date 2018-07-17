@@ -32,7 +32,7 @@ dateTimeStamp = decrypt(echoForm.getvalue('dateTimeStamp'))
 
 cursor.execute('''INSERT INTO EchoData(userName, currentLevel, trackCount,
 echoLocation, postEchoAction, correctAction, dateTimeStamp)
-VALUES(?,?,?,?,?,?,?)''', (userName, currentLevel, trackCount, echo,
+VALUES(?,?,?,?,?,?,?)''', (userName, currentLevel, trackCount,
   echoLocation, postEchoAction, correctAction, dateTimeStamp))
 
 db.commit() #changes are committed to database
