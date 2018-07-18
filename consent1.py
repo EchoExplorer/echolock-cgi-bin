@@ -23,7 +23,7 @@ cursor = db.cursor()
 consentForm = cgi.FieldStorage()
 
 userName = decrypt(consentForm.getvalue('userName'))
-consentID = int(decrypt(consentForm.getvalue('consentID')))
+consentID = decrypt(consentForm.getvalue('consentID'))
 dateTimeStamp = decrypt(consentForm.getvalue('dateTimeStamp'))
 
 cursor.execute('''INSERT INTO ConsentIDData(userName, consentID, dateTimeStamp)

@@ -16,7 +16,7 @@ def decrypt(decryptThis):
 
 consentForm = cgi.FieldStorage()
 
-username = decrypt(consentForm.getvalue('username'))
+username = decrypt(consentForm.getvalue('userName'))
 agecheck = decrypt(consentForm.getvalue('agecheck'))
 understandcheck = decrypt(consentForm.getvalue('understandcheck'))
 researchcheck = decrypt(consentForm.getvalue('researchcheck'))
