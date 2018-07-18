@@ -38,7 +38,7 @@ def storeConsent(code):
 
   time = str(datetime.datetime.now())
 
-  cursor.execute('''INSERT INTO ConsentData(surveyID, dateTimeStamp)
+  cursor.execute('''INSERT INTO ConsentData(consentID, dateTimeStamp)
   VALUES(?,?)''', (code, time))
 
   db.commit() #changes are committed to database
