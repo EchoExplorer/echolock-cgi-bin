@@ -11,8 +11,8 @@ privateKey = fOpen.read()
 rsakey = RSA.importKey(privateKey)
 
 def decrypt(decryptThis):
-    raw_cipher_data = b64decode(decryptThis)
-    return unicode(rsakey.decrypt(raw_cipher_data))
+  raw_cipher_data = b64decode(decryptThis)
+  return unicode(rsakey.decrypt(raw_cipher_data))
 
 consentForm = cgi.FieldStorage()
 
@@ -20,10 +20,6 @@ username = decrypt(consentForm.getvalue('userName'))
 agecheck = decrypt(consentForm.getvalue('agecheck'))
 understandcheck = decrypt(consentForm.getvalue('understandcheck'))
 researchcheck = decrypt(consentForm.getvalue('researchcheck'))
-
-if researchcheck == "yes" and researchcheck == agecheck and agecheck == understandcheck:
-  code = findCode()
-  storeConsent(code)
 
 def findCode():
   with open('/srv/maze/consent.set', 'rb') as f: #set of already used ID #'s
@@ -47,6 +43,10 @@ def storeConsent(code):
 
   db.commit() #changes are committed to database
   db.close()
+
+if researchcheck == "yes" and researchcheck == agecheck and agecheck == understandcheck:
+  code = findCode()
+  storeConsent(code)
 
 print "Content-type:text/json\r\n\r\n"
 print "{",
