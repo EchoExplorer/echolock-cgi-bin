@@ -23,7 +23,7 @@ cursor = db.cursor()
 surveyForm = cgi.FieldStorage()
 
 userName = decrypt(surveyForm.getvalue('userName'))
-surveyID = int(decrypt(surveyForm.getvalue('surveyID')))
+surveyID = decrypt(surveyForm.getvalue('surveyID'))
 dateTimeStamp = decrypt(surveyForm.getvalue('dateTimeStamp'))
 
 cursor.execute('''INSERT INTO SurveyIDData(userName, surveyID, dateTimeStamp)
