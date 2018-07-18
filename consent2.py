@@ -52,5 +52,5 @@ print "Content-type:text/json\r\n\r\n"
 print "{",
 keys = consentForm.keys()
 for key in keys:
-    print key, ":\"", consentForm[key].value, "\"", ",",
+  print key, ":\"", consentForm[key].value, "\"", ",",
 print "}"
