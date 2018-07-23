@@ -26,14 +26,16 @@ userName = decrypt(echoForm.getvalue('userName'))
 currentLevel = int(decrypt(echoForm.getvalue('currentLevel')))
 trackCount = int(decrypt(echoForm.getvalue('trackCount')))
 echoLocation = decrypt(echoForm.getvalue('echoLocation'))
+locationType = decrypt(echoForm.getvalue('locationType'))
 postEchoAction = decrypt(echoForm.getvalue('postEchoAction'))
 correctAction = decrypt(echoForm.getvalue('correctAction'))
+echoFile = decrypt(echoForm.getvalue('echoFile'))
 dateTimeStamp = decrypt(echoForm.getvalue('dateTimeStamp'))
 
 cursor.execute('''INSERT INTO EchoData(userName, currentLevel, trackCount, 
 echoLocation, postEchoAction, correctAction, dateTimeStamp)
-VALUES(?,?,?,?,?,?,?)''', (userName, currentLevel, trackCount, 
-  echoLocation, postEchoAction, correctAction, dateTimeStamp))
+VALUES(?,?,?,?,?,?,?,?,?)''', (userName, currentLevel, trackCount, 
+  echoLocation, locationType, postEchoAction, correctAction, echoFile, dateTimeStamp))
 
 db.commit() #changes are committed to database
 db.close()
