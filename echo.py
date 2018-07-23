@@ -33,7 +33,7 @@ echoFile = decrypt(echoForm.getvalue('echoFile'))
 dateTimeStamp = decrypt(echoForm.getvalue('dateTimeStamp'))
 
 cursor.execute('''INSERT INTO EchoData(userName, currentLevel, trackCount, 
-echoLocation, postEchoAction, correctAction, dateTimeStamp)
+echoLocation, locationType, postEchoAction, correctAction, echoFile, dateTimeStamp)
 VALUES(?,?,?,?,?,?,?,?,?)''', (userName, currentLevel, trackCount, 
   echoLocation, locationType, postEchoAction, correctAction, echoFile, dateTimeStamp))
 
